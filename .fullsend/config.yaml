@@ -18,6 +18,11 @@ roles:
     - fix
     - retro
     - prioritize
+agents:
+    - name: retro
+      trigger: event.transition.kind == "comment_added" && has(event.transition.comment.command) && event.transition.comment.command == "/fs-retro" && event.actor.kind == "human"
+    - name: review
+      trigger: "false"
 allowed_remote_resources:
     - https://raw.githubusercontent.com/fullsend-ai/fullsend/
     - https://raw.githubusercontent.com/fullsend-ai/agents/
